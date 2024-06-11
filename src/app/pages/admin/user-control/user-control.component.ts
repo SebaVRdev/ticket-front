@@ -62,13 +62,26 @@ export class UserControlComponent implements OnInit{
     });
   }
 
+  cambioRoleInSelect(event: any) {
+    const role = event.target.value;
+    if (role === 'TECNIC_ROLE') {
+      this.formulario.get('nivel')!.enable();
+    } else {
+      this.formulario.get('nivel')!.disable();
+    }
+  }
+
   onSubmit(){
     const name = this.formulario.value.username;
     const email = this.formulario.value.email;
     const role = this.formulario.value.role;
     const nivel = this.formulario.value.nivel;
     this.userService.registerAdminTec({ name, email, role, nivel }).subscribe(
-      res => {console.log(res)}
+      res => {
+        this.loadUsers();
+        alert("Usuario creado con exito!")
+        this.formulario.reset();
+      }
     )
   }
 

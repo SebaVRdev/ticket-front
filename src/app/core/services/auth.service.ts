@@ -88,9 +88,11 @@ export class AuthService {
     const { role } = res.user;
     if (role === 'CLIENT_ROLE') {
       this.router.navigateByUrl('/client');
-    } else if (role === 'ADMIN_ROLE' || role === 'TECNIC_ROLE') {
+    } else if (role === 'ADMIN_ROLE') {
       this.router.navigate(['/dashboard']);
-    } else {
+    }else if (role === 'TECNIC_ROLE'){
+      this.router.navigate(['/dashboard/tickets']);
+    }else {
       console.log('Rol desconocido');
     } 
   }
