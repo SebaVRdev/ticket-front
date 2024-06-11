@@ -16,7 +16,7 @@
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
         <a [routerLink]="['/client']" *appShowForRoles="['CLIENT_ROLE']" class="text-sm font-semibold leading-6 text-gray-900">Crear Ticket</a>
-        <a [routerLink]="['/dashboard/tickets']" *appShowForRoles="['CLIENT_ROLE']" class="text-sm font-semibold leading-6 text-gray-900">Mis Tickets</a>
+        <a [routerLink]="['/client/myTickets']" *appShowForRoles="['CLIENT_ROLE']" class="text-sm font-semibold leading-6 text-gray-900">Mis Tickets</a>
         <a [routerLink]="['/dashboard/users']" *appShowForRoles="['ADMIN_ROLE','TECNIC_ROLE']" class="text-sm font-semibold leading-6 text-gray-900">Usuarios</a>
         <a [routerLink]="['/dashboard/tickets']" *appShowForRoles="['ADMIN_ROLE', 'TECNIC_ROLE']" class="text-sm font-semibold leading-6 text-gray-900">Tickets</a>
         <a [routerLink]="['/dashboard']" *appShowForRoles="['ADMIN_ROLE']" class="text-sm font-semibold leading-6 text-gray-900">Estadisticas</a>

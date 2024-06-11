@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Global } from './global';
-import { BehaviorSubject, Observable, ReplaySubject, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, firstValueFrom, map, tap } from 'rxjs';
 import { UserWithToken } from '../models/types';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -24,6 +24,7 @@ export class AuthService {
   ) { 
     this.url = Global.url; 
     this.loadUserFromLocalStorage();
+    this.isAuthenticated();
   }
 
 
@@ -97,4 +98,11 @@ export class AuthService {
   getToken(): string | null {
     return localStorage.getItem('userData');
   }
+
+  async isAuthenticated(): Promise<boolean> {
+    const isLoggedIn = await firstValueFrom(this.isLoggedIn$);
+    console.log(isLoggedIn !== null)
+    return isLoggedIn;
+  }
+
 }

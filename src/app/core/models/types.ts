@@ -1,3 +1,5 @@
+import { Role } from "./roles.types";
+
 export interface Cliente {
   name: string;
   email: string;
@@ -7,7 +9,7 @@ export interface Cliente {
     uid: string;
     name: string;
     email: string;
-    role: string;
+    role: Role;
   }
   export interface UserWithToken extends User{
     token: string
