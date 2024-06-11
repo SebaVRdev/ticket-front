@@ -1,0 +1,27 @@
+<div class="p-5">
+    <table class="min-w-full bg-white">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b border-gray-300 text-left text-sm font-medium text-gray-600">Nombre</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left text-sm font-medium text-gray-600">Cuerpo</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left text-sm font-medium text-gray-600">Prioridad</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left text-sm font-medium text-gray-600">Cliente</th>
+                <th class="py-2 px-4 border-b border-gray-300 text-left text-sm font-medium text-gray-600">Asignado a:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ticket of tickets" [routerLink]="['/client/ticket', ticket._id]" class="cursor-pointer hover:bg-gray-100">
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-gray-700">{{ ticket.title }}</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-gray-700">{{ ticket.cuerpo  | truncateText:10 }}</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-gray-700">{{ ticket.prioridad }}</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-gray-700">{{ ticket.cliente.name }}</td>
+                <td *ngIf="ticket.tecnicos && ticket.tecnicos.length > 0" class="py-2 px-4 border-b border-gray-300 text-sm text-gray-700">
+                    {{ ticket.tecnicos[0].user.name}}
+                </td>
+                <td *ngIf="!ticket.tecnicos || ticket.tecnicos.length === 0" class="py-2 px-4 border-b border-gray-300 text-sm text-gray-700">
+                    No hay técnicos asignados
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

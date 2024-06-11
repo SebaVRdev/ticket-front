@@ -1,0 +1,94 @@
+<div class="flex flex-wrap items-start justify-center">
+  <div class="w-full max-w-4xl lg:w-2/3 p-6">
+    <div class="bg-white shadow-sm rounded-lg p-6 mb-6">
+      <app-user-filters
+        [selectedRole]="selectedRole"
+        [selectedStatus]="selectedStatus"
+        [searchName]="searchName"
+        (roleChange)="onRoleChange($event)"
+        (statusChange)="onStatusChange($event)"
+        (searchChange)="onSearchChange($event)"
+      ></app-user-filters>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-lg p-6">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl text-gray-800 font-semibold">Usuarios</h2>
+      </div>
+      <app-pagination
+        [page]="page"
+        [total]="total"
+        [limit]="limit"
+        (pageChange)="onPageChange($event)"
+      ></app-pagination>
+      <app-list-users
+        [users]="users"
+        (estadoUser)="cambiarEstado($event)"
+      ></app-list-users>
+    </div>
+  </div>
+  <div *ngIf="isSuperAdmin" class="w-full max-w-2xl lg:w-1/3 p-6">
+    <div class="bg-white shadow-sm rounded-lg p-6">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <h3 class="mb-4 text-2xl text-gray-800 font-semibold text-center">
+          Register
+        </h3>
+        <div class="mb-4">
+          <label for="username" class="block text-sm text-gray-600"
+            >Username</label
+          >
+          <input
+            type="text"
+            class="w-full p-2 border border-gray-300 rounded"
+            id="username"
+            formControlName="username"
+            placeholder="Type your username"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-sm text-gray-600">Email</label>
+          <input
+            type="email"
+            class="w-full p-2 border border-gray-300 rounded"
+            id="email"
+            formControlName="email"
+            placeholder="Type your email"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="roleFilter" class="block text-sm text-gray-600"
+            >Role</label
+          >
+          <select
+            formControlName="role"
+            class="w-full p-2 border border-gray-300 rounded"
+          >
+            <option value="">Select role</option>
+            <option *ngFor="let role of roles" [value]="role">
+              {{ role }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label for="statusFilter" class="block text-sm text-gray-600"
+            >Nivel</label
+          >
+          <select
+            formControlName="nivel"
+            class="w-full p-2 border border-gray-300 rounded"
+          >
+            <option value="BAJO">BAJO</option>
+            <option value="MEDIO">MEDIO</option>
+            <option value="ALTO">ALTO</option>
+          </select>
+        </div>
+        <button
+          type="submit"
+          class="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

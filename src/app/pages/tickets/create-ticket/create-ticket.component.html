@@ -1,0 +1,38 @@
+<div class="bg-white">
+  <main class="py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-center">
+        <img src="assets/images/Online consulting-rafiki.png" alt="Ticket Support" class="h-64 w-full object-cover rounded-md shadow-lg">
+      </div>
+      <div class="mt-8 text-center">
+        <h2 class="text-3xl font-semibold text-gray-800">Necesitas Ayuda?</h2>
+        <p class="mt-2 text-gray-600">Nuestro equipo de asistencia está aquí para ayudarte.</p>
+        <button class="mt-4 px-6 py-3 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500" (click)="openSupportTicketModal()">Crear Ticket de Soporte</button>
+        <app-ticket-modal></app-ticket-modal>
+      </div>
+    </div>
+  </main>
+
+  <div id="about" class="bg-gray-100 py-8">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Sobre Nosotros</h2>
+        <p class="text-gray-600 text-justify">En [Nombre de la Empresa], somos un equipo apasionado de desarrolladores, especialistas en atención al cliente y visionarios tecnológicos dedicados a revolucionar la forma en que las empresas gestionan sus interacciones con los clientes. Con años de experiencia en el sector y una profunda comprensión de las necesidades tanto de las empresas como de los usuarios finales, hemos creado una aplicación que combina funcionalidad avanzada con una interfaz intuitiva.</p>
+        <h3 class="text-xl font-semibold text-gray-800 mt-6">Qué Ofrecemos</h3>
+        <ul class="list-disc list-inside text-gray-600 mt-4">
+          <li>Gestión Centralizada de Tickets: Una plataforma única donde puedes gestionar todas las solicitudes de soporte, priorizar tareas y asignar tickets a los miembros adecuados de tu equipo.</li>
+          <li>Automatización y Eficiencia: Herramientas avanzadas de automatización que reducen el tiempo de respuesta y mejoran la eficiencia operativa.</li>
+          <li>Análisis y Reportes: Informes detallados que te proporcionan insights valiosos sobre el rendimiento de tu equipo y la satisfacción del cliente.</li>
+          <li>Integración Fácil: Compatibilidad con múltiples sistemas y aplicaciones que ya utilizas, asegurando una transición fluida y sin interrupciones.</li>
+          <li>Atención al Cliente 24/7: Un equipo de soporte dedicado disponible para ayudarte en cualquier momento, asegurando que siempre tengas el apoyo que necesitas.</li>
+        </ul>
+    </div>
+  </div>
+
+</div>
+<!-- Pie de página -->
+<footer class="bg-gray-200">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="#" class="text-xl font-bold text-gray-500 hover:text-gray-400">Ticket Support</a>
+        <p class="py-2 text-gray-500 sm:py-0">All rights reserved</p>
+    </div>
+</footer>

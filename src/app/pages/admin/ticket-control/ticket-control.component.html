@@ -1,0 +1,30 @@
+<div class="min-h-screen bg-gray-200 flex flex-col">
+    <!-- Navbar -->
+    <div class="flex-grow flex items-center justify-center">
+        <div class="w-full max-w-6xl bg-white shadow-md rounded-lg overflow-hidden mt-6">
+            <div class="text-center p-5 border-b border-gray-300">
+                <h2 class="mt-2 text-lg text-gray-800">Ticket Management</h2>
+            </div>
+            <!-- List Tickets -->
+            <app-list-tickets [tickets]="tickets"></app-list-tickets>
+            <!-- Pagination Section -->
+            <div class="p-3 border-t border-gray-300 bg-gray-50 flex justify-between items-center">
+                <!-- Text Showing X to Y of Z results -->
+                <div class="text-sm text-gray-700">
+                    Showing
+                    <span class="font-medium">{{ (page - 1) * limit + 1 }}</span>
+                    to
+                    <span class="font-medium">{{ page * limit > total ? total : page * limit }}</span>
+                    of
+                    <span class="font-medium">{{ total }}</span>
+                    results
+                </div>
+                <!-- Pagination Component -->
+                <div>
+                    <app-pagination [page]="page" [limit]="limit" [total]="total" (pageChange)="onPageChange($event)"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

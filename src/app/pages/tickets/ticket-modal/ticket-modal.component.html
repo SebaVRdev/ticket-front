@@ -1,0 +1,27 @@
+<div id="supportTicketModal" class="modal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <div class="support-ticket-form">
+        <h2>Support Ticket Form</h2>
+        <form (ngSubmit)="onSubmit()" #ticketForm="ngForm">
+          <div>
+            <label for="title">Nombre del ticket:</label>
+            <input type="text" id="title" required [(ngModel)]="ticket.title" name="title">
+          </div>
+          <div>
+            <label for="cuerpo">Describa su problema:</label>
+            <textarea id="cuerpo" required [(ngModel)]="ticket.cuerpo" name="cuerpo"></textarea>
+          </div>
+          <div>
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" required [(ngModel)]="ticket.categoria" name="categoria">
+              <option value="" disabled selected>Selecciona la categoria</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.nombre">{{ categoria.nombre }}</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

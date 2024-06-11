@@ -1,0 +1,1 @@
+export type Role = "ADMIN_ROLE" | "TECNIC_ROLE" | "CLIENT_ROLE";

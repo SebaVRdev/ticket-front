@@ -1,0 +1,21 @@
+<div *appShowForRoles="['ADMIN_ROLE']" class="flex items-center justify-between p-5 border-b border-gray-300">
+    <div>
+      <label for="roleFilter" class="text-sm font-medium text-gray-600">Filtrar por Rol:</label>
+      <select id="roleFilter" [(ngModel)]="selectedRole" (ngModelChange)="onRoleChange($event)" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        <option value="">Todos</option>
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="statusFilter" class="text-sm font-medium text-gray-600">Filtrar por Estado:</label>
+      <select id="statusFilter" [(ngModel)]="selectedStatus" (ngModelChange)="onStatusChange($event)" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+        <option value="">Todos</option>
+        <option value="activo">Activo</option>
+        <option value="inactivo">Inactivo</option>
+      </select>
+    </div>
+    <div>
+      <label for="nameFilter" class="text-sm font-medium text-gray-600">Filtrar por Nombre:</label>
+      <input id="nameFilter" type="text" [(ngModel)]="searchName" (ngModelChange)="onSearchChange($event)" class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Buscar por nombre">
+    </div>
+</div>
